@@ -1,7 +1,8 @@
-package com.nimok97.newsapp
+package com.nimok97.newsapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.nimok97.newsapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
