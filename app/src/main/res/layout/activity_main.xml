@@ -24,7 +24,7 @@
                 android:id="@+id/main_mtb"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/news_primary"/>
+                android:background="@color/news_primary" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -41,10 +41,13 @@
             android:id="@+id/main_bnv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@color/news_primary"
+            app:itemTextColor="@drawable/main_bottomnavigation_text_selector"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@color/news_primary"/>
+            app:menu="@menu/menu_main_bottomnavigation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

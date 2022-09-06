@@ -17,5 +17,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        initView()
+    }
+
+    private fun initView() {
+        setBottomNavigationView()
+    }
+
+    private fun setBottomNavigationView() {
+        binding.mainBnv.itemIconTintList = null
     }
 }
