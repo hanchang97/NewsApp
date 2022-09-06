@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_topnews"
+        android:icon="@drawable/main_bottomnavigation_icon_topnews_selector"
+        android:title="@string/main_tab_topnews" />
+
+    <item
+        android:id="@+id/fragment_categories"
+        android:icon="@drawable/main_bottomnavigation_icon_categories_selector"
+        android:title="@string/main_tab_categories" />
+
+    <item
+        android:id="@+id/fragment_savednews"
+        android:icon="@drawable/main_bottomnavigation_icon_saved_selector"
+        android:title="@string/main_tab_saved" />
+</menu>
