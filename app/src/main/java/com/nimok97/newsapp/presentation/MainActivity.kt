@@ -3,6 +3,8 @@ package com.nimok97.newsapp.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.nimok97.newsapp.R
 import com.nimok97.newsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,5 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setBottomNavigationView() {
         binding.mainBnv.itemIconTintList = null
+        val navController = supportFragmentManager.findFragmentById(R.id.main_fcv)?.findNavController()
+        navController?.let {
+            binding.mainBnv.setupWithNavController(navController)
+        }
     }
 }
