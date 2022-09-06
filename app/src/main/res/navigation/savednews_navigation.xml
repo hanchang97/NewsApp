@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/savednews"
+    app:startDestination="@+id/fragment_savednews">
+
+    <fragment
+        android:id="@+id/fragment_savednews"
+        android:name="com.nimok97.newsapp.presentation.saved.SavedNewsFragment"
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_fragment_savednews_to_fragment_detailnews_3"
+            app:destination="@id/fragment_detailnews_3" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_detailnews_3"
+        android:name="com.nimok97.newsapp.presentation.detail.DetailNewsFragment"
+        android:label="DetailNewsFragment" />
+</navigation>

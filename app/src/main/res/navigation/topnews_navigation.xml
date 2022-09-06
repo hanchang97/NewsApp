@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topnews"
+    app:startDestination="@+id/fragment_topnews">
+
+    <fragment
+        android:id="@+id/fragment_topnews"
+        android:name="com.nimok97.newsapp.presentation.topnews.TopNewsFragment"
+        android:label="TopNewsFragment" >
+        <action
+            android:id="@+id/action_topNewsFragment_to_detailNewsFragment"
+            app:destination="@id/fragment_detailnews_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_detailnews_1"
+        android:name="com.nimok97.newsapp.presentation.detail.DetailNewsFragment"
+        android:label="DetailNewsFragment" />
+</navigation>

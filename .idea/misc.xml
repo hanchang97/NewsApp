@@ -11,8 +11,10 @@
         <entry key="app/src/main/res/drawable/main_bottomnavigation_icon_saved_selector.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/main_bottomnavigation_icon_topnews_selector.xml" value="0.1795" />
         <entry key="app/src/main/res/drawable/main_bottomnavigation_text_selector.xml" value="0.1425" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2378189086914063" />
-        <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.190625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23713073730468753" />
+        <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.24502410888671877" />
+        <entry key="app/src/main/res/layout/fragment_categorynews.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/fragment_detailnews.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/fragment_savednews.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/fragment_topnews.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/menu/menu_main_bottomnavigation.xml" value="0.19583333333333333" />
