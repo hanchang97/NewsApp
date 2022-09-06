@@ -1,4 +1,4 @@
-package com.nimok97.newsapp.presentation.topnews
+package com.nimok97.newsapp.presentation.categories.categoryNews
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.nimok97.newsapp.R
-import com.nimok97.newsapp.databinding.FragmentTopnewsBinding
+import com.nimok97.newsapp.databinding.FragmentCategorynewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TopNewsFragment : Fragment() {
-    private var _binding: FragmentTopnewsBinding? = null
+class CategoryNewsFragment : Fragment() {
+    private var _binding: FragmentCategorynewsBinding? = null
     private val binding get() = requireNotNull(_binding)
 
     override fun onCreateView(
@@ -22,7 +22,7 @@ class TopNewsFragment : Fragment() {
     ): View? {
         _binding = DataBindingUtil.inflate(
             layoutInflater,
-            R.layout.fragment_topnews,
+            R.layout.fragment_categorynews,
             container,
             false
         )

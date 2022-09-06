@@ -8,7 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.nimok97.newsapp.R
 import com.nimok97.newsapp.databinding.FragmentSavednewsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SavedNewsFragment : Fragment() {
     private var _binding: FragmentSavednewsBinding? = null
     private val binding get() = requireNotNull(_binding)
