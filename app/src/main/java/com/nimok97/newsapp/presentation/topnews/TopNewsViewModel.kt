@@ -32,7 +32,7 @@ class TopNewsViewModel @Inject constructor(
 
     fun getNewsList() {
         viewModelScope.launch {
-            getRemoteNewsListUseCase("health").cachedIn(viewModelScope).collect {
+            getRemoteNewsListUseCase("").cachedIn(viewModelScope).collect {
                 _topNewsPagingData.value = it
                 Log.e(TAG, " success : ${it}")
             }

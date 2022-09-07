@@ -61,7 +61,9 @@ class TopNewsFragment : Fragment() {
     private fun setRecyclerView() {
         newsItemAdapter = NewsItemAdapter {
             // detail 로 이동 + newsItem 전달하기
-
+            it?.let {
+                findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
+            }
         }
 
         binding.topnewsRv.apply {
