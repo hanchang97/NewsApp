@@ -37,7 +37,9 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     tools:src="@drawable/ic_launcher_background"
-                    app:setStringUrlImage="@{newsItem.urlToImage}"/>
+                    app:setStringUrlImage="@{newsItem.urlToImage}"
+                   />
+
 
             </com.google.android.material.card.MaterialCardView>
 
