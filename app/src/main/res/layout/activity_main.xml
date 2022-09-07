@@ -12,22 +12,6 @@
         android:layout_height="match_parent"
         tools:context=".presentation.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/main_abl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/main_mtb"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/news_primary" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_fcv"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -37,7 +21,7 @@
             app:layout_constraintBottom_toTopOf="@id/main_bnv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_abl"
+            app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/main_navigation" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

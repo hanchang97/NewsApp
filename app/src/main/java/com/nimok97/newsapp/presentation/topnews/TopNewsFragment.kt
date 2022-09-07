@@ -12,8 +12,12 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.map
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nimok97.newsapp.R
 import com.nimok97.newsapp.databinding.FragmentTopnewsBinding
+import com.nimok97.newsapp.presentation.common.adapter.NewsItemAdapter
+import com.nimok97.newsapp.presentation.common.decorator.VerticalItemDecorator
+import com.nimok97.newsapp.presentation.common.dpToPx
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -24,6 +28,7 @@ class TopNewsFragment : Fragment() {
     private val binding get() = requireNotNull(_binding)
 
     private val topNewsViewModel: TopNewsViewModel by viewModels()
+    private lateinit var newsItemAdapter: NewsItemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,23 +54,28 @@ class TopNewsFragment : Fragment() {
     }
 
     private fun initView() {
-        setTestBtn()
+        setRecyclerView()
         //topNewsViewModel.getNewsList()
     }
 
-    private fun setTestBtn() {
-        binding.topnewsBtnGotoDetailnews.setOnClickListener {
-            findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
+    private fun setRecyclerView() {
+        newsItemAdapter = NewsItemAdapter {
+            // detail 로 이동 + newsItem 전달하기
+
+        }
+
+        binding.topnewsRv.apply {
+            adapter = newsItemAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(VerticalItemDecorator(dpToPx(requireContext(), 16).toInt()))
         }
     }
 
     private fun observeData() {
         topNewsViewModel.topNewsPagingData.flowWithLifecycle(lifecycle).onEach {
-           // adapter.submitData(it)
             Log.e("${this.javaClass.simpleName}", "success")
-            it.map {
-                Log.e("AppTest", "$it")
-            }
+            Log.e("${this.javaClass.simpleName}", "result null? : ${it == null}")
+            newsItemAdapter.submitData(it)
         }.launchIn(lifecycleScope)
     }
 

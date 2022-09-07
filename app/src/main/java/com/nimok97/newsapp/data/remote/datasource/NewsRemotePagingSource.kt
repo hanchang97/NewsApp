@@ -1,5 +1,6 @@
 package com.nimok97.newsapp.data.remote.datasource
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.nimok97.newsapp.data.remote.api.NewsService
@@ -23,6 +24,7 @@ class NewsRemotePagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsItem> {
         val page = params.key ?: STARTING_PAGING_INDEX
         return try {
+            Log.e("NewsRemotePagingSource", "try load")
             val response = newsService.getNewsList(
                 country = "us",
                 category = category,
@@ -34,6 +36,7 @@ class NewsRemotePagingSource(
             val newsItems = response.body()?.articleResponses?.map {
                 RemoteMapper.mapToNewsItem(it)
             } ?: listOf()
+            Log.e("NewsRemotePagingSource", "list size : ${newsItems.size}")
 
             LoadResult.Page(
                 data = newsItems,
@@ -41,6 +44,7 @@ class NewsRemotePagingSource(
                 nextKey = if (newsItems.isEmpty()) null else page + 1
             )
         } catch (e: Exception) {
+            Log.e("NewsRemotePagingSource", "exception : ${e}")
             LoadResult.Error(e)
         }
     }

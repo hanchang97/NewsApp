@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Inter Semi Bold Black -->
+    <style name="Widget.TextView.Inter.Black" parent="">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Widget.TextView.Inter.Black.15" parent="Widget.TextView.Inter.Black">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Widget.TextView.Inter.Black.14" parent="Widget.TextView.Inter.Black">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Inter Semi Bold Grey -->
+    <style name="Widget.TextView.Inter.Grey" parent="">
+        <item name="android:textColor">@color/news_grey_1</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Widget.TextView.Inter.Grey.14" parent="Widget.TextView.Inter.Grey">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
