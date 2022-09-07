@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package com.nimok97.newsapp.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -7,12 +9,15 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -28,6 +33,17 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun providesHeaderInterceptor() = Interceptor { chain ->
+        with(chain) {
+            val request = request().newBuilder()
+                .addHeader("Accept", "application/json")
+                .build()
+            proceed(request)
+        }
+    }
+
+    @Provides
+    @Singleton
     fun providesLoggerInterceptor() = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor.Level.BODY
@@ -38,8 +54,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(loggerInterceptor: HttpLoggingInterceptor) =
+    fun providesOkHttpClient(
+        headerInterceptor: Interceptor,
+        loggerInterceptor: HttpLoggingInterceptor
+    ) =
         OkHttpClient.Builder()
+            //.addInterceptor(headerInterceptor)
             .addInterceptor(loggerInterceptor)
             .build()
 
@@ -52,8 +72,9 @@ object NetworkModule {
     fun providesRetrofit(okHttpClient: OkHttpClient, converterFactory: Converter.Factory) =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient)
             .addConverterFactory(converterFactory)
+            //.addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
             .build()
 
     @Provides
