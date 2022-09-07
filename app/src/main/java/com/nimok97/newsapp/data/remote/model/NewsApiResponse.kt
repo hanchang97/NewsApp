@@ -10,5 +10,5 @@ data class NewsApiResponse(
     @SerialName("totalResults")
     val totalResults: Int,
     @SerialName("articles")
-    val articles: List<Article>
+    val articleResponses: List<ArticleResponse>
 )

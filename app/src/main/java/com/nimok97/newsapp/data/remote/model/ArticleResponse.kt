@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Article(
+data class ArticleResponse(
     @SerialName("author")
     val author: String,
     @SerialName("title")
