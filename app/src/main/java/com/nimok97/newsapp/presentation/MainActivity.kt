@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.nimok97.newsapp.BuildConfig
 import com.nimok97.newsapp.R
 import com.nimok97.newsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,17 +23,15 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = requireNotNull(_binding)
 
-    //private lateinit var bottomNavigationView: BottomNavigationView
-
     private val mainViewModel: MainViewModel by viewModels()
 
     private lateinit var mainNavController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        //Log.e("AppTest", "DEBUG? : ${BuildConfig.DEBUG}")
 
         initView()
         observeMoveEvent()
@@ -46,14 +44,10 @@ class MainActivity : AppCompatActivity() {
     private fun setBottomNavigationView() {
         binding.mainBnv.itemIconTintList = null
 
-//        bottomNavigationView = findViewById(R.id.main_bnv)
-//        bottomNavigationView.itemIconTintList = null
-
         supportFragmentManager.findFragmentById(R.id.main_fcv)?.findNavController()?.let {
             mainNavController = it
         }
         binding.mainBnv.setupWithNavController(mainNavController)
-        //bottomNavigationView.setupWithNavController(mainNavController)
     }
 
     private fun observeMoveEvent() {
