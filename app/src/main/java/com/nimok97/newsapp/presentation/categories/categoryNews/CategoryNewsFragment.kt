@@ -31,6 +31,24 @@ class CategoryNewsFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initView()
+    }
+
+    private fun initView() {
+        setAppBar()
+    }
+
+    private fun setAppBar() {
+        binding.categorynewsMtb.setNavigationOnClickListener {
+            activity?.let {
+                it.onBackPressed()
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

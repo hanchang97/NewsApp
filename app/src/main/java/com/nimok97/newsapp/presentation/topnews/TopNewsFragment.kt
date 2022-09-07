@@ -49,14 +49,11 @@ class TopNewsFragment : Fragment() {
     }
 
     private fun initView() {
-        setTestBtn()
-        //topNewsViewModel.getNewsList()
+       setRecyclerView()
     }
 
-    private fun setTestBtn() {
-        binding.topnewsBtnGotoDetailnews.setOnClickListener {
-            findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
-        }
+    private fun setRecyclerView() {
+
     }
 
     private fun observeData() {

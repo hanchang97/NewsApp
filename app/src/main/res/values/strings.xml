@@ -3,4 +3,7 @@
     <string name="main_tab_topnews">Top News</string>
     <string name="main_tab_categories">Categories</string>
     <string name="main_tab_saved">Saved</string>
+    <string name="topnews_appbar_title">NewsApp</string>
+    <string name="savednews_appbar_title">Saved News</string>
+    <string name="categories_appbar_title">Category</string>
 </resources>
