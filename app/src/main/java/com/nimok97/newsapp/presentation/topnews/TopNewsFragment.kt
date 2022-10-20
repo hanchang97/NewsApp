@@ -62,7 +62,9 @@ class TopNewsFragment : Fragment() {
         newsItemAdapter = NewsItemAdapter {
             // detail 로 이동 + newsItem Bundle로 전달
             it?.let {
-                findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
+                val action = TopNewsFragmentDirections.actionTopNewsFragmentToDetailNewsFragment(it)
+                //findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
+                findNavController().navigate(action)
             }
         }
 
