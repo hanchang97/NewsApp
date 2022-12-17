@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/fragment_detailnews_1"
         android:name="com.nimok97.newsapp.presentation.detail.DetailNewsFragment"
-        android:label="DetailNewsFragment" />
+        android:label="DetailNewsFragment" >
+        <argument
+            android:name="newsItem"
+            app:argType="com.nimok97.newsapp.domain.model.NewsItem" />
+    </fragment>
 </navigation>

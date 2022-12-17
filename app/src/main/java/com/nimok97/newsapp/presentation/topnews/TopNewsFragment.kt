@@ -60,8 +60,12 @@ class TopNewsFragment : Fragment() {
 
     private fun setRecyclerView() {
         newsItemAdapter = NewsItemAdapter {
-            // detail 로 이동 + newsItem 전달하기
-
+            // detail 로 이동 + newsItem Bundle로 전달
+            it?.let {
+                val action = TopNewsFragmentDirections.actionTopNewsFragmentToDetailNewsFragment(it)
+                //findNavController().navigate(R.id.action_topNewsFragment_to_detailNewsFragment)
+                findNavController().navigate(action)
+            }
         }
 
         binding.topnewsRv.apply {
